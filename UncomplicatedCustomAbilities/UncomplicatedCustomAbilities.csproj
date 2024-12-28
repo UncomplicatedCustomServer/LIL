@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB8A56FE-C02E-4C38-BA91-2B834ACAD232}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UncomplicatedCustomAbilities</RootNamespace>
+    <AssemblyName>UncomplicatedCustomAbilities</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>12</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>12</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\Desktop\EXILED_REF\References\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LIL\Attributes\OpCodeReference.cs" />
+    <Compile Include="LIL\Enums\OpCodeType.cs" />
+    <Compile Include="LIL\Enums\StackMemberType.cs" />
+    <Compile Include="LIL\Features\Files\BaseFile.cs" />
+    <Compile Include="LIL\Features\Files\Config.cs" />
+    <Compile Include="LIL\Features\Files\EventScript.cs" />
+    <Compile Include="LIL\Features\Files\Info.cs" />
+    <Compile Include="LIL\Features\Files\TimeScript.cs" />
+    <Compile Include="LIL\Features\Parser.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\Boolean.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\Class.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\Generic.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\Number.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\Operator.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\StackMember.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\String.cs" />
+    <Compile Include="LIL\Features\Script\EvaluationStock\TempSetting.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\CallVir.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\DefineVariable.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\Instruction.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\LoadField.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\LoadLocalVar.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\LoadReference.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\DefineAssembly.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\LoadString.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\Operators\Foreach.cs" />
+    <Compile Include="LIL\Features\Script\Results\Break.cs" />
+    <Compile Include="LIL\Features\Script\Results\Continue.cs" />
+    <Compile Include="LIL\Features\Script\Results\Error.cs" />
+    <Compile Include="LIL\Features\Script\Results\ExecuteRcp.cs" />
+    <Compile Include="LIL\Features\Script\Results\Goto.cs" />
+    <Compile Include="LIL\Features\Script\Results\Return.cs" />
+    <Compile Include="LIL\Features\Script\Results\Success.cs" />
+    <Compile Include="LIL\Features\Script\Results\Result.cs" />
+    <Compile Include="LIL\Features\Script\Script.cs" />
+    <Compile Include="LIL\Features\Script\Variables\Variable.cs" />
+    <Compile Include="LIL\Helpers\List.cs" />
+    <Compile Include="LIL\Helpers\Numbers.cs" />
+    <Compile Include="LIL\Helpers\Strings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
