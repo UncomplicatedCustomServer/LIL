@@ -10,19 +10,22 @@ namespace LIL.Helpers
 {
     internal class Executor
     {
-        public static Tuple<Result, object> Execute(string raw, Script script) => InternalExecute(raw, script);
+        public static Tuple<Result, object> Execute(string raw, Script script, bool targetConstructor = false) => InternalExecute(raw, script, targetConstructor);
 
-        private static Tuple<Result, object> InternalExecute(string Raw, Script Script)
+        private static Tuple<Result, object> InternalExecute(string Raw, Script Script, bool targetConstructor = false)
         {
             if (Script.EvaluationStack.Last() is not Class cl)
                 return new(new Error($"Last evaluation Stack is not a class but a {Script.EvaluationStack.Last().GetType().FullName}"), null);
+
+            if (cl.RefType is null)
+                return new(new Error($"Given class in the evaluation stack is null!"), null);
 
             Script.RemoveLastStackMember();
 
             string name = Raw.Split(' ')[0];
 
             // We load the method BEFORE and then we put the arguments, we prob will have to cast them? idk we'll see
-            List<MethodInfo> methodInfo = [.. cl.RefType.GetMethods().Where(m => m.Name == name)];
+            List<MethodBase> methodInfo = targetConstructor ? [.. cl.RefType.GetConstructors()] : [.. cl.RefType.GetMethods().Where(m => m.Name == name)];
 
             if (methodInfo.Count < 1)
                 return new(new Error($"Method {name} not found inside class {cl.RefType.FullName}!"), null);
@@ -51,7 +54,7 @@ namespace LIL.Helpers
             //return new Success();
         }
 
-        private static Tuple<Result, object> MethodRunner(Script Script, MethodInfo method, object cl)
+        private static Tuple<Result, object> MethodRunner(Script Script, MethodBase method, object cl)
         {
             if (Script.EvaluationStack.Count < method.GetParameters().Count(p => !p.IsOptional))
                 return new(new Error($"Method {method.GetType().FullName} requires a minimum of {method.GetParameters().Count(p => !p.IsOptional)}"), null);

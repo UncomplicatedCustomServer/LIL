@@ -66,6 +66,7 @@
     <Compile Include="Enums\OperatorTargetType.cs" />
     <Compile Include="Enums\OperatorType.cs" />
     <Compile Include="Enums\StackMemberType.cs" />
+    <Compile Include="Features\AssemblyHandler.cs" />
     <Compile Include="Features\Files\BaseFile.cs" />
     <Compile Include="Features\Files\Config.cs" />
     <Compile Include="Features\Files\EventScript.cs" />
@@ -97,10 +98,12 @@
     <Compile Include="Features\Script\Instructions\LoadReference.cs" />
     <Compile Include="Features\Script\Instructions\DefineAssembly.cs" />
     <Compile Include="Features\Script\Instructions\LoadString.cs" />
+    <Compile Include="Features\Script\Instructions\NewObject.cs" />
     <Compile Include="Features\Script\Instructions\Operators\Foreach.cs" />
     <Compile Include="Features\Script\Instructions\Operators\If.cs" />
     <Compile Include="Features\Script\Instructions\Pop.cs" />
     <Compile Include="Features\Script\Instructions\Return.cs" />
+    <Compile Include="Features\Script\Instructions\SaveField.cs" />
     <Compile Include="Features\Script\Instructions\SaveLocalVar.cs" />
     <Compile Include="Features\Script\Instructions\StringConcat.cs" />
     <Compile Include="Features\Script\Instructions\StringPopulate.cs" />
@@ -118,6 +121,7 @@
     <Compile Include="Helpers\Executor.cs" />
     <Compile Include="Helpers\List.cs" />
     <Compile Include="Helpers\Numbers.cs" />
+    <Compile Include="Helpers\ObjectHandler.cs" />
     <Compile Include="Helpers\Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

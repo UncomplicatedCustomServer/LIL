@@ -6,6 +6,7 @@
         Ldref,
         Evalfr,
         Ldfld,
+        Stfld,
         Defvar,
         Call,
         Callvir,
@@ -27,6 +28,7 @@
         Ret,
         Brk,
         Cont,
-        Convto
+        Convto,
+        Newobj
     }
 }
