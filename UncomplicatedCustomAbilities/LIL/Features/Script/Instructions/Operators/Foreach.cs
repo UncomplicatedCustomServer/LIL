@@ -32,9 +32,9 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.Instructions.Operator
 
                     Result status = scr.Execute();
                     if (status is Error)
-                        return new Return();
-                    else if (status is Break)
-                        return new Break(); // Break is recursive
+                        return new Results.Return();
+                    else if (status is Results.Break)
+                        return new Results.Break(); // Break is recursive
                 }
 
             return new Success();

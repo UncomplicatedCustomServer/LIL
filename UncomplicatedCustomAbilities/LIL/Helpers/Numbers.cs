@@ -26,7 +26,7 @@ namespace UncomplicatedCustomAbilities.LIL.Helpers
             if (@base == 0)
                 return false;
 
-            return (number / @base).GetType() == typeof(int);
+            return !(number / @base).ToString().Contains(".");
         }
     }
 }

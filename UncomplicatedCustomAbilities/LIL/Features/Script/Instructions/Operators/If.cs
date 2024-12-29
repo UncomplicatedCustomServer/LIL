@@ -1,4 +1,5 @@
-﻿using UncomplicatedCustomAbilities.LIL.Attributes;
+﻿using System;
+using UncomplicatedCustomAbilities.LIL.Attributes;
 using UncomplicatedCustomAbilities.LIL.Enums;
 using UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack;
 using UncomplicatedCustomAbilities.LIL.Features.Script.Results;
@@ -55,15 +56,16 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.Instructions.Operator
             if (target is null)
                 return new Error("Unhandled case of an IF clause (NOT FATAL!)", false);
 
-            if (!int.TryParse(target, out int res))
-                return new Error($"Failed to parse rcp of an IF clause: {target}");
+            int res = Convert.ToInt32(target, 16);
 
             if (!Script.Rcp.TryGetValue(res, out Script action))
                 return new Error($"Failed to parse rcp of an IF clause: {target} -> NOTFOUND!");
 
+            Script.EvaluationStack.Clear();
+
             action.Clone();
             action.Parent = Script;
-            action.Execute();
+            return action.Execute();
         }
 
         private bool? HandleClause(StackMember a, StackMember b, Operator @operator)

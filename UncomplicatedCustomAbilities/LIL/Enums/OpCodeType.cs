@@ -26,6 +26,7 @@
         Clear,
         Ret,
         Brk,
-        Cont
+        Cont,
+        Convto
     }
 }

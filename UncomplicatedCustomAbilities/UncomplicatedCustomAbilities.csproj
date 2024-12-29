@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LIL\Attributes\OpCodeReference.cs" />
+    <Compile Include="LIL\Enums\MathOperatorType.cs" />
     <Compile Include="LIL\Enums\OpCodeType.cs" />
     <Compile Include="LIL\Enums\OperatorTargetType.cs" />
     <Compile Include="LIL\Enums\OperatorType.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="LIL\Features\Script\Instructions\CallVir.cs" />
     <Compile Include="LIL\Features\Script\Instructions\Clear.cs" />
     <Compile Include="LIL\Features\Script\Instructions\Continue.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\ConvertTo.cs" />
     <Compile Include="LIL\Features\Script\Instructions\DefineVariable.cs" />
     <Compile Include="LIL\Features\Script\Instructions\Instruction.cs" />
     <Compile Include="LIL\Features\Script\Instructions\LoadBool.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="LIL\Features\Script\Instructions\Operators\If.cs" />
     <Compile Include="LIL\Features\Script\Instructions\Pop.cs" />
     <Compile Include="LIL\Features\Script\Instructions\Return.cs" />
+    <Compile Include="LIL\Features\Script\Instructions\SaveLocalVar.cs" />
     <Compile Include="LIL\Features\Script\Instructions\StringConcat.cs" />
     <Compile Include="LIL\Features\Script\Instructions\StringPopulate.cs" />
     <Compile Include="LIL\Features\Script\Results\Break.cs" />

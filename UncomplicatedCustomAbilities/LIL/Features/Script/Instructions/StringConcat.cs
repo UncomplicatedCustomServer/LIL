@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UncomplicatedCustomAbilities.LIL.Attributes;
 using UncomplicatedCustomAbilities.LIL.Enums;
 using UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack;
 using UncomplicatedCustomAbilities.LIL.Features.Script.Results;
-using UncomplicatedCustomAbilities.LIL.Helpers;
 
 namespace UncomplicatedCustomAbilities.LIL.Features.Script.Instructions
 {

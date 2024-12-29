@@ -20,14 +20,14 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
 
         public static StackMember CreateFromGenericType(Type type, object raw, Script script)
         {
-            if (type.IsClass)
-                return new Class(type, raw, script);
-            else if (type.IsNumber())
-                return new Number(raw.ToString(), script, type);
-            else if (type == typeof(string))
+            if (type == typeof(string))
                 return new String(raw.ToString(), script);
             else if (type == typeof(bool))
                 return new Boolean(bool.Parse(raw.ToString()), script);
+            else if (type.IsNumber())
+                return new Number(raw.ToString(), script, type);
+            else if (type.IsClass)
+                return new Class(type, raw, script);
             else
                 return new Generic(raw, script);
 

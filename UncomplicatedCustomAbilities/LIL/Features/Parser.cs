@@ -54,7 +54,7 @@ namespace UncomplicatedCustomAbilities.LIL.Features
             foreach (string line in text.Split([Environment.NewLine], StringSplitOptions.RemoveEmptyEntries))
             {
                 if (line.Length is 5 && line.ToCharArray().Last() is ':')
-                    currentPrc = int.Parse(line.Replace(":", ""));
+                    currentPrc = Convert.ToInt32(line.Replace(":", ""), 16);
                 else
                 {
                     if (prc.ContainsKey(currentPrc))
@@ -65,7 +65,7 @@ namespace UncomplicatedCustomAbilities.LIL.Features
             }
 
             foreach (KeyValuePair<int, List<string>> kvp in prc)
-                script.Rcp.Add(kvp.Key, ParseGenericCode(string.Join(Environment.NewLine, kvp.Value), script));
+                script.Rcp.Add(kvp.Key, ParseGenericCode(string.Join(Environment.NewLine, kvp.Value)));
 
             return script;
         }

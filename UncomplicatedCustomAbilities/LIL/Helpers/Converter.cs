@@ -22,12 +22,22 @@ namespace UncomplicatedCustomAbilities.LIL.Helpers
 
         }
 
-        public static Tuple<Result, StackMember> ConvertTo(Script script, StackMember original, string newType)
+        public static Tuple<Result, StackMember> ConvertTo(StackMember original, string newType)
         {
+            Init();
+
             if (!StackTypes.TryGetValue(newType.ToLower(), out Type target))
                 return new(new Error($"Can't find a StackMember w/ type {newType.ToLower()}!"), null);
 
-            
+            StackMember newStackMember = null;
+
+            if (original.CanBeConvertedTo.Length > 0)
+                newStackMember = original.ConvertTo(target);
+
+            if (newStackMember is null)
+                return new(new Error($"Can't convert {original.GetType().Name} to {target.Name}!"), null);
+
+            return new(new Success(), newStackMember);
         }
     }
 }

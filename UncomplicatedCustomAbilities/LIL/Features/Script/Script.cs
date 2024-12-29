@@ -22,6 +22,8 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script
 
         public readonly Dictionary<string, string> GenericSettings = [];
 
+        public bool CanOverrideVars => !(GenericSettings.ContainsKey("secure_vars") && GenericSettings["secure_vars"] == "true");
+
         public bool IsInsideLoop { get; internal set; } = false;
 
         public Script Parent { get; internal set; } = null;
@@ -42,14 +44,14 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script
                     i = gt.Line;
                 /*else if (result is ExecuteRcp rcp && Rcp.ContainsKey(rcp.Id))
                     if (Rcp[rcp.Id].Execute();*/
-                else if (result is Return)
-                    return new Return();
-                else if (result is Break && IsInsideLoop)
-                    return new Break();
-                else if (result is Continue && IsInsideLoop)
+                else if (result is Results.Return)
+                    return new Results.Return();
+                else if (result is Results.Break && IsInsideLoop)
+                    return new Results.Break();
+                else if (result is Results.Continue && IsInsideLoop)
                     return new Success(); // Skip without breaking everything
                 else if (result is Error)
-                    return new Return();
+                    return new Results.Return();
             }
 
             return new Success();
