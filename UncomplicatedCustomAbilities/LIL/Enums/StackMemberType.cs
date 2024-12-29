@@ -8,6 +8,7 @@
         Operator,
         Class,
         Generic,
-        TempSetting
+        TempSetting,
+        Null
     }
 }

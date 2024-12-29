@@ -14,7 +14,7 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.Instructions
         {
             string assembly = string.Empty;
 
-            if (Script.EvaluationStack.Last() is TempSetting tempSetting && tempSetting.Args[0] == "load_assembly") {
+            if (Script.EvaluationStack.Count > 0 && Script.EvaluationStack.Last() is TempSetting tempSetting && tempSetting.Args[0] == "load_assembly") {
                 Script.RemoveLastStackMember();
                 assembly = $", {tempSetting.Args[1]}";
             }

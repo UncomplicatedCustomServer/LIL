@@ -11,5 +11,17 @@ namespace UncomplicatedCustomAbilities.LIL.Helpers
 
             return char.ToUpper(input[0]) + input.Substring(1);
         }
+
+        public static bool AbsEquals(this string[] a, string[] b)
+        {
+            if (a.Length != b.Length)
+                return false;
+
+            bool allowed = true;
+            for (int index = 0; index < a.Length; index++)
+                allowed &= a[index] == b[index];
+
+            return allowed;
+        }
     }
 }

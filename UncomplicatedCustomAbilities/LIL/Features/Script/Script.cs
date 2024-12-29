@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack;
 using UncomplicatedCustomAbilities.LIL.Features.Script.Instructions;
 using UncomplicatedCustomAbilities.LIL.Features.Script.Results;
@@ -15,7 +16,9 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script
 
         public readonly List<Instruction> Instructions = [];
 
-        public readonly Dictionary<string, Variable> Variables = [];
+        public Dictionary<string, Variable> Variables => Parent is null ? _variables : Parent._variables;
+
+        public Dictionary<string, Variable> _variables = [];
 
         public readonly Dictionary<string, string> GenericSettings = [];
 
@@ -34,7 +37,6 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script
         {
             for (int i = 0; i < Instructions.Count; i++)
             {
-                Console.WriteLine($"Executing Instruction {i} - {Instructions[i].")
                 Result result = Instructions[i].Execute();
                 if (result is Goto gt)
                     i = gt.Line;

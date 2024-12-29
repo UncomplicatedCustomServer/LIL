@@ -20,5 +20,13 @@ namespace UncomplicatedCustomAbilities.LIL.Helpers
         ];
 
         public static bool IsNumber(this Type type) => numericTypes.Contains(type);
+
+        public static bool IsMultiplier(this int number, uint @base)
+        {
+            if (@base == 0)
+                return false;
+
+            return (number / @base).GetType() == typeof(int);
+        }
     }
 }

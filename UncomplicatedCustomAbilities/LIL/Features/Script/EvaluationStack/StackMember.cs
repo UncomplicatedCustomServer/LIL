@@ -12,6 +12,10 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
 
         public readonly Type RefType = type;
 
+        public abstract bool IsQuantifiable { get; }
+
+        public virtual Type[] CanBeConvertedTo { get; } = [];
+
         public abstract object Evaluate(Type requiredType = null);
 
         public static StackMember CreateFromGenericType(Type type, object raw, Script script)
@@ -23,10 +27,14 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
             else if (type == typeof(string))
                 return new String(raw.ToString(), script);
             else if (type == typeof(bool))
-                return new EvaluationStock.Boolean(bool.Parse(raw.ToString()), script);
+                return new Boolean(bool.Parse(raw.ToString()), script);
             else
                 return new Generic(raw, script);
 
         }
+
+        public virtual decimal Quantify() => 0;
+
+        public virtual StackMember ConvertTo(Type newType) => throw new NotImplementedException();
     }
 }

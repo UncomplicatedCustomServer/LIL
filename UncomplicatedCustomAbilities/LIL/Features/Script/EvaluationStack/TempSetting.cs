@@ -11,6 +11,8 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
 
         public readonly string[] Args = raw.Split(' ');
 
+        public override bool IsQuantifiable => false;
+
         public override object Evaluate(Type requiredType = null) => Content;
     }
 }

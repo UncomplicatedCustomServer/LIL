@@ -16,8 +16,16 @@
         Evalif,
         Evalfo,
         Evalwh,
-        Ldrefclass,
         Defass,
-        Ldstr
+        Ldstr,
+        Strpop,
+        Strc,
+        Pop,
+        Ldnum,
+        Ldbool,
+        Clear,
+        Ret,
+        Brk,
+        Cont
     }
 }

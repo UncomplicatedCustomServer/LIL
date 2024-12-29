@@ -9,6 +9,8 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
 
         public readonly object Content = content;
 
+        public override bool IsQuantifiable => false;
+
         public override object Evaluate(Type requiredType = null) => Content;
     }
 }

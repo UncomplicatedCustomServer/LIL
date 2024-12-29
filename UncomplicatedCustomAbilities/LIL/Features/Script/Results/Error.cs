@@ -2,9 +2,10 @@
 {
     internal class Error : Result
     {
-        public Error(string error)
+        public Error(string error, bool fatal = true)
         {
-            throw new System.Exception(error);
+            if (fatal)
+                throw new System.Exception(error);
         }
     }
 }

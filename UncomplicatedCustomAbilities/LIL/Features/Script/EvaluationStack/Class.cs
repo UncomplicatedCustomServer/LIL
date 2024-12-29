@@ -11,6 +11,8 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
 
         public readonly object Instance = instance;
 
+        public override bool IsQuantifiable => false;
+
         public bool IsStatic => RefType is not null && Instance is null;
 
         public override object Evaluate(Type requiredType = null) => Instance;

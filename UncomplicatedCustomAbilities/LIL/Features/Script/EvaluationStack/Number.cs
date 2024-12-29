@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UncomplicatedCustomAbilities.LIL.Enums;
 
 namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
@@ -8,6 +9,21 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
         public override StackMemberType Type => StackMemberType.Number;
 
         public readonly string Content = num;
+
+        public override bool IsQuantifiable => true;
+
+        public override Type[] CanBeConvertedTo => [typeof(String)];
+
+        public override StackMember ConvertTo(Type newType)
+        {
+            if (!CanBeConvertedTo.Contains(newType))
+                return null;
+
+            if (newType == typeof(String))
+                return new String(Content, Script);
+
+            return null;
+        }
 
         public override object Evaluate(Type requiredType = null)
         {
@@ -34,5 +50,7 @@ namespace UncomplicatedCustomAbilities.LIL.Features.Script.EvaluationStack
                 return value7;
             return 0;
         }
+
+        public override decimal Quantify() => (decimal)Evaluate(typeof(decimal));
     }
 }
