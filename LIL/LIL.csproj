@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB8A56FE-C02E-4C38-BA91-2B834ACAD232}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LIL</RootNamespace>
+    <AssemblyName>LIL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>12</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>12</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\OpCodeReference.cs" />
+    <Compile Include="Enums\MathOperatorType.cs" />
+    <Compile Include="Enums\OpCodeType.cs" />
+    <Compile Include="Enums\OperatorTargetType.cs" />
+    <Compile Include="Enums\OperatorType.cs" />
+    <Compile Include="Enums\StackMemberType.cs" />
+    <Compile Include="Features\Files\BaseFile.cs" />
+    <Compile Include="Features\Files\Config.cs" />
+    <Compile Include="Features\Files\EventScript.cs" />
+    <Compile Include="Features\Files\Info.cs" />
+    <Compile Include="Features\Files\TimeScript.cs" />
+    <Compile Include="Features\Parser.cs" />
+    <Compile Include="Features\Script\EvaluationStack\Boolean.cs" />
+    <Compile Include="Features\Script\EvaluationStack\Class.cs" />
+    <Compile Include="Features\Script\EvaluationStack\Generic.cs" />
+    <Compile Include="Features\Script\EvaluationStack\Null.cs" />
+    <Compile Include="Features\Script\EvaluationStack\Number.cs" />
+    <Compile Include="Features\Script\EvaluationStack\Operator.cs" />
+    <Compile Include="Features\Script\EvaluationStack\StackMember.cs" />
+    <Compile Include="Features\Script\EvaluationStack\String.cs" />
+    <Compile Include="Features\Script\EvaluationStack\TempSetting.cs" />
+    <Compile Include="Features\Script\Instructions\Break.cs" />
+    <Compile Include="Features\Script\Instructions\Call.cs" />
+    <Compile Include="Features\Script\Instructions\CallVir.cs" />
+    <Compile Include="Features\Script\Instructions\Clear.cs" />
+    <Compile Include="Features\Script\Instructions\Continue.cs" />
+    <Compile Include="Features\Script\Instructions\ConvertTo.cs" />
+    <Compile Include="Features\Script\Instructions\DefineVariable.cs" />
+    <Compile Include="Features\Script\Instructions\Instruction.cs" />
+    <Compile Include="Features\Script\Instructions\LoadBool.cs" />
+    <Compile Include="Features\Script\Instructions\LoadField.cs" />
+    <Compile Include="Features\Script\Instructions\LoadLocalVar.cs" />
+    <Compile Include="Features\Script\Instructions\LoadNumber.cs" />
+    <Compile Include="Features\Script\Instructions\LoadOperator.cs" />
+    <Compile Include="Features\Script\Instructions\LoadReference.cs" />
+    <Compile Include="Features\Script\Instructions\DefineAssembly.cs" />
+    <Compile Include="Features\Script\Instructions\LoadString.cs" />
+    <Compile Include="Features\Script\Instructions\Operators\Foreach.cs" />
+    <Compile Include="Features\Script\Instructions\Operators\If.cs" />
+    <Compile Include="Features\Script\Instructions\Pop.cs" />
+    <Compile Include="Features\Script\Instructions\Return.cs" />
+    <Compile Include="Features\Script\Instructions\SaveLocalVar.cs" />
+    <Compile Include="Features\Script\Instructions\StringConcat.cs" />
+    <Compile Include="Features\Script\Instructions\StringPopulate.cs" />
+    <Compile Include="Features\Script\Results\Break.cs" />
+    <Compile Include="Features\Script\Results\Continue.cs" />
+    <Compile Include="Features\Script\Results\Error.cs" />
+    <Compile Include="Features\Script\Results\ExecuteRcp.cs" />
+    <Compile Include="Features\Script\Results\Goto.cs" />
+    <Compile Include="Features\Script\Results\Return.cs" />
+    <Compile Include="Features\Script\Results\Success.cs" />
+    <Compile Include="Features\Script\Results\Result.cs" />
+    <Compile Include="Features\Script\Script.cs" />
+    <Compile Include="Features\Script\Variables\Variable.cs" />
+    <Compile Include="Helpers\Converter.cs" />
+    <Compile Include="Helpers\Executor.cs" />
+    <Compile Include="Helpers\List.cs" />
+    <Compile Include="Helpers\Numbers.cs" />
+    <Compile Include="Helpers\Strings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
